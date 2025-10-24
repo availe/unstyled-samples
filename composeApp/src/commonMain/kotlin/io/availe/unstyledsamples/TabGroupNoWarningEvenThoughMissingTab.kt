@@ -17,7 +17,7 @@ fun TabGroupNoWarningEvenThoughMissingTab() {
 
     /*
     Even with attemptBreakingApp as true, this does not break the app or cause any warning/error message.
-    Tab group simply ignores the missing tab and proceeds as normal, which is not ideal for debugging.
+    Tab group simply ignores the missing requested tab ("Favorite") and proceeds as normal, which is not ideal for debugging.
      */
     val attemptBreakingApp = true
     val selectInitialTab = if (attemptBreakingApp) "Favorite" else "Tab1"
