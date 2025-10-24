@@ -1,4 +1,4 @@
-package io.availe.unstyledsamples
+package io.availe.unstyledsamples.samples
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

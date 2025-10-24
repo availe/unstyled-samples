@@ -1,6 +1,7 @@
 package io.availe.unstyledsamples
 
 import androidx.compose.runtime.Composable
+import io.availe.unstyledsamples.samples.TabGroupNoWarningEvenThoughMissingTab
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 enum class Sample {
