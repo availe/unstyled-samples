@@ -15,24 +15,31 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 @Composable
 @Preview
 fun App() {
-    val categories = listOf("Tab1", "Tab2", "Tab3", "Tab4", "Tab5")
+    val tabs = listOf("Tab1", "Tab2", "Tab3", "Tab4", "Tab5")
 
-    val state = rememberTabGroupState(categories.first(), orderedTabs = categories)
+    /*
+    Even with attemptBreakingApp as true, this does not break the app or cause any warning/error message.
+    Tab group simply ignores the missing tab and proceeds as normal, which is not ideal for debugging.
+     */
+    val attemptBreakingApp = true
+    val selectInitialTab = if (attemptBreakingApp) "Favorite" else "Tab1"
 
-    TabGroup(state = state, Modifier.fillMaxSize().padding(16.dp)) {
+    val tabState = rememberTabGroupState(selectInitialTab, orderedTabs = tabs)
+
+    TabGroup(state = tabState, Modifier.fillMaxSize().padding(16.dp)) {
         TabList(Modifier.fillMaxWidth()) {
-            categories.forEach { category ->
+            tabs.forEach { tab ->
                 Box(Modifier.padding(4.dp).background(Color.LightGray)) {
-                    Tab(key = category) {
-                        Text(category)
+                    Tab(key = tab) {
+                        Text(tab)
                     }
                 }
             }
         }
 
-        categories.forEach { category ->
-            TabPanel(key = category) {
-                Text("$category Content")
+        tabs.forEach { tab ->
+            TabPanel(key = tab) {
+                Text("$tab Content")
             }
         }
     }
